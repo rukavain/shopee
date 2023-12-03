@@ -7,28 +7,30 @@
   <script>
     tailwind.config = {
       theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-          }
-        }
+    extend: {
+      colors: {
+        clifford: '#da373d',
       }
     }
-  </script>
-  <style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer utilities {
+  .content-auto {
+    content-visibility: auto;
       }
     }
+
+
+
+
   </style>
 </head>
 <body>
-    <button class="bg-orange-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition: all">
-        Go to shopee
-      </button>
-    @yield('content')
-    {{-- CONTENT GOES HERE --}}
-
+{{-- CONTENT GOES HERE --}}
+<a href="{{route('mainpage')}}" class="bg-orange-600 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded transition">
+Go to shopee
+</a>
 </body>
 </html>
