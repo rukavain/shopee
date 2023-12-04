@@ -15,8 +15,11 @@
     </div>
     <div class="flex justify-around items-center">
         <div class="flex justify-center items-center">
-            <img class="object-fit h-24 w-24"
-                src="https://i.pinimg.com/originals/6d/b9/31/6db931827443a7455a4b805fe5829820.png" alt="">
+            <a href="{{ route('index') }}">
+                <img class="object-fit h-24 w-24"
+                    src="https://i.pinimg.com/originals/6d/b9/31/6db931827443a7455a4b805fe5829820.png" alt="">
+            </a>
+
             <h1 class="text-white text-center text-4xl">Shopee</h1>
         </div>
         <div class="w-[50vw]"> {{-- start of search div --}}

@@ -24,11 +24,12 @@
         }
     </style>
 </head>
-
 @include('nav')
 
 <body>
-
+    <div class="flex my-5 mx-5 flex-row border border-blue-600 border-2">
+        @include('filter')
+    </div>
 </body>
 
 </html>
