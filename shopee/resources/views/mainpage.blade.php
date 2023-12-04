@@ -27,9 +27,14 @@
 @include('nav')
 
 <body>
-    <div class="flex my-5 mx-5 flex-row border border-blue-600 border-2">
+    <div class="flex justify-around my-5 mx-5 flex-row">
         @include('filter')
     </div>
+    @foreach ($products as $product)
+        @include('card')
+    @endforeach
+
+
 </body>
 
 </html>

@@ -8,6 +8,10 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function index(){
+        return view('layout');
+    }
+
+    public function mainpage(){
 
         $product =  new Product([
             'name'=>'Logitech G102 Lightsync Optical Gaming Mouse',
@@ -23,7 +27,5 @@ class ProductController extends Controller
             'products' => Product::orderBy('created_at', 'DESC')->get()
         ]);
     }
-    public function mainpage() {
-        return view('mainpage');
-    }
+
 }
