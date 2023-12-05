@@ -75,4 +75,9 @@ class ProductController extends Controller
 
             return redirect()->route('products.list');
     }
+    public function destroy(Product $id){
+        $id->delete();
+
+        return redirect()->route('mainpage');
+    }
 }

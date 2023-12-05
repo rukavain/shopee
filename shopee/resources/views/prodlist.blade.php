@@ -69,7 +69,8 @@
                             </label>
                             <input
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Playstation 5" name="name">
+                                id="grid-last-name" type="text" placeholder="Playstation 5" name="name"
+                                value="{{ $product->name }}">
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -78,7 +79,8 @@
                             </label>
                             <input
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="₱29,999" name="price">
+                                id="grid-last-name" type="text" placeholder="₱29,999" name="price"
+                                value="{{ $product->price }}">
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -89,14 +91,14 @@
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text"
                                 placeholder="The PlayStation 5 (PS5) is Sony's latest gaming console, released in November 2020. It features advanced hardware for 4K gaming, rapid loading times with an SSD, and an innovative DualSense controller for immersive gameplay. The PS5 offers a diverse library of games, including exclusive titles, making it a flagship device for cutting-edge gaming experiences."
-                                name="description">
+                                name="description" value="{{ $product->description }}">
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                 for="grid-last-name">
                                 Stocks
                             </label>
-                            <input
+                            <input value="{{ $product->stocks }}"
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="999" name="stocks">
                         </div>
@@ -107,15 +109,17 @@
                             </label>
                             <input
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="999" name="sold" value="0">
+                                value="{{ $product->sold }}" id="grid-last-name" type="text" placeholder="999"
+                                name="sold" value="0">
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                 for="grid-last-name">
                                 Image
                             </label>
-                            <input
-                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            <input autocomplete="off"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white
+                                 focus:border-gray-500"
                                 id="grid-last-name" type="url" placeholder="Doe" name="image" required>
                         </div>
                         <div class="w-full md:w-1/2 px-3">
@@ -165,11 +169,15 @@
                                                 {{ $product->name }}</td>
                                             <td
                                                 class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
-                                                <!-- Add your action buttons here -->
                                                 <a href="{{ route('products.edit', $product->id) }}"
                                                     class="mx-5 bg-white hover:bg-orange-600 border border-3 transition hover:text-white px-8 py-2 text-black hover:bg border-orange-600 rounded-md">Edit</a>
-                                                <button
-                                                    class="mx-5 bg-white hover:bg-orange-600 border border-3 transition hover:text-white px-8 py-2 text-black hover:bg border-orange-600 rounded-md">Delete</button>
+                                                <form action="{{ route('products.destroy', $product->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button
+                                                        class="mx-5 bg-white hover:bg-orange-600 border border-3 transition hover:text-white px-8 py-2 text-black hover:bg border-orange-600 rounded-md">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -29,3 +29,5 @@ Route::get('/mainpage', [ProductController::class, 'mainpage'])->name('mainpage'
 Route::get('/makeproducts', [ProductController::class, 'gotocreate'])->name('goto.create');
 
 Route::post('/products', [ProductController::class, 'store'])->name('products.create');
+
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
