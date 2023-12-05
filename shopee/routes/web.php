@@ -31,3 +31,5 @@ Route::get('/makeproducts', [ProductController::class, 'gotocreate'])->name('got
 Route::post('/products', [ProductController::class, 'store'])->name('products.create');
 
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');

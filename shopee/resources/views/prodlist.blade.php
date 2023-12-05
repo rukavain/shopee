@@ -155,12 +155,15 @@
                                             Product Name</th>
                                         <th
                                             class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-center">
-                                            Actions</th>
+                                            Update</th>
+                                        <th
+                                            class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-center">
+                                            Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white dark:bg-slate-800">
                                     @foreach ($products as $product)
-                                        <tr>
+                                        <tr class="border-3">
                                             <td
                                                 class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
                                                 {{ $product->id }}</td>
@@ -171,6 +174,8 @@
                                                 class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
                                                 <a href="{{ route('products.edit', $product->id) }}"
                                                     class="mx-5 bg-white hover:bg-orange-600 border border-3 transition hover:text-white px-8 py-2 text-black hover:bg border-orange-600 rounded-md">Edit</a>
+                                            </td>
+                                            <td>
                                                 <form action="{{ route('products.destroy', $product->id) }}"
                                                     method="POST">
                                                     @csrf

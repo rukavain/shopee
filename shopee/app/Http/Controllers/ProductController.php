@@ -80,4 +80,9 @@ class ProductController extends Controller
 
         return redirect()->route('mainpage');
     }
+    public function show(Product $product){
+        return view('view', [
+            'product'=>$product
+        ]);
+    }
 }
