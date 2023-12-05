@@ -24,17 +24,15 @@
         }
     </style>
 </head>
+@include('nav')
 
 <body>
-    {{-- CONTENT GOES HERE --}}
-    <a href="{{ route('mainpage') }}"
-        class="bg-orange-600 m-12 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded transition">
-        Go to shopee
-    </a>
-    <a href="{{ route('goto.create') }}"
-        class="bg-green-600 m-12 hover:opacity-75 text-white font-bold py-2 px-4 rounded transition">
-        Add product
-    </a>
+
+
+
+
+
+
 </body>
 
 </html>

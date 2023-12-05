@@ -149,6 +149,7 @@
                 <button class=" mt-4 py-1 px-12 font-semibold bg-orange-600 text-white">CLEAR ALL</button>
             </div>
         </div>
+    </div>
 </body>
 
 </html>

@@ -28,4 +28,24 @@ class ProductController extends Controller
         ]);
     }
 
+    public function store() {
+
+        $product = Product::create([
+
+            'name'=> request()->get('name', ''),
+            'price'=> request()->get('price', ''),
+            'description'=> request()->get('description', ''),
+            'stocks'=> request()->get('stocks', ''),
+            'image'=> request()->get('image', ''),
+            'sold' => request()->get('sold', '')
+
+        ]);
+
+        $product->save();
+        return redirect()->route('mainpage');
+    }
+    public function gotocreate(){
+        return view('create');
+    }
+
 }
