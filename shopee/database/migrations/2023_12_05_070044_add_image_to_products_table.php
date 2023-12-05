@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             Schema::table('products', function (Blueprint $table) {
-                $table->text('image')->default('default.jpg');
+                $table->longText('image', 255)->default('default.jpg');
             });
         });
     }

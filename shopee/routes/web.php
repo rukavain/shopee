@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index'])->name('index');
 
+Route::get('/productslist', [ProductController::class, 'gotoprodlist'])->name('products.list');
+
 Route::get('/mainpage', [ProductController::class, 'mainpage'])->name('mainpage');
 
 Route::get('/makeproducts', [ProductController::class, 'gotocreate'])->name('goto.create');

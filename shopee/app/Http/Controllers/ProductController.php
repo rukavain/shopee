@@ -50,10 +50,10 @@ class ProductController extends Controller
     public function gotocreate(){
         return view('create');
     }
-    public function edit(Product $product) {
-
-        return view('index');
-
+    public function gotoprodlist(Product $products) {
+        return view('prodlist',[
+            'products' => Product::all()
+        ]);
     }
 
 }

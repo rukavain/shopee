@@ -35,6 +35,10 @@
         class="bg-green-600 m-12 hover:opacity-75 text-white font-bold py-2 px-4 rounded transition">
         Add product
     </a>
+    <a href="{{ route('products.list') }}"
+        class="bg-green-600 m-12 hover:opacity-75 text-white font-bold py-2 px-4 rounded transition">
+        View Products
+    </a>
 </body>
 
 </html>

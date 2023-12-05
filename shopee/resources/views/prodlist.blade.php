@@ -29,7 +29,14 @@
 <body>
 
 
-
+    <div class="flex flex-col justify-center items-start">
+        @foreach ($products as $product)
+            <div class="flex m-12 border border-2 border-blue-600">
+                <p>Product ID: {{ $product->id }} </p>
+                <p>Product Name: {{ $product->name }} </p>
+            </div>
+        @endforeach
+    </div>
 
 
 
