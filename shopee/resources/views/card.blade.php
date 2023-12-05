@@ -1,7 +1,6 @@
 <div id="card" class="flex flex-col border border-2 min-h-[36vh] rounded-md mt-8 p-3 mx-6 max-w-[10vw] h-min hover:">
     <div>
-        <img class="h-48 w-48" src="https://media.direct.playstation.com/is/image/psdglobal/PS5-console-front"
-            alt="">
+        <img class="h-48 w-48" src={{ $product->image }} alt="">
     </div>
     <div>
         <p class="text-sm">{{ $product->name }}</p>
@@ -21,6 +20,6 @@
             alt="">
         <img class="h-2 w-2" src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png"
             alt="">
-        <p> 166 Sold</p>
+        <p> Sold {{ $product->sold }}</p>
     </div>
 </div>

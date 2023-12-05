@@ -30,6 +30,10 @@ class ProductController extends Controller
 
     public function store() {
 
+        request()->validate([
+            'image' => 'required|url'
+        ]);
+
         $product = Product::create([
 
             'name'=> request()->get('name', ''),
@@ -37,8 +41,7 @@ class ProductController extends Controller
             'description'=> request()->get('description', ''),
             'stocks'=> request()->get('stocks', ''),
             'image'=> request()->get('image', ''),
-            'sold' => request()->get('sold', '')
-
+            'sold' => request()->get('sold', ''),
         ]);
 
         $product->save();
@@ -46,6 +49,11 @@ class ProductController extends Controller
     }
     public function gotocreate(){
         return view('create');
+    }
+    public function edit(Product $product) {
+
+        return view('index');
+
     }
 
 }
