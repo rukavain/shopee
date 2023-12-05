@@ -40,7 +40,9 @@
                 @endforeach
             </div>
         </div>
+
     </div>
+    {{ $products->links() }}
 </body>
 
 </html>
