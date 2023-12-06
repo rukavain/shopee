@@ -10,6 +10,12 @@ class ProductController extends Controller
     public function index(){
         return view('layout');
     }
+    public function cart(Product $products){
+        $products::all();
+        return view('cart', [
+            'products'=>Product::orderBy('created_at', 'DESC')->get()
+        ]);
+    }
 
     public function mainpage(){
 
@@ -94,9 +100,8 @@ class ProductController extends Controller
     $product->decrement('stocks', request('quantity'));
     $product->increment('sold', request('quantity'));
 
-    return redirect()->back();
+    return redirect()->back()->with('success', 'Successfully Added to Cart!');
     }
-    public function cart(){
-        return view('cart');
-    }
+
+
 }

@@ -1,7 +1,7 @@
 <nav class="flex flex-col bg-orange-600 py-4">
     <div class="flex justify-around items-start w-full my-3 ">
         <div class="flex text-sm text-white gap-4 w-50">
-            <a>Seller Centre |</a>
+            <a href="{{ route('products.list') }}">Products List |</a>
             <a>Start Selling |</a>
             <a>Download |</a>
             <a>Follow us on </a>
@@ -15,12 +15,14 @@
     </div>
     <div class="flex justify-around items-center">
         <div class="flex justify-center items-center">
-            <a href="{{ route('index') }}">
+            <a href="{{ route('mainpage') }}">
                 <img class="object-fit h-24 w-24"
                     src="https://i.pinimg.com/originals/6d/b9/31/6db931827443a7455a4b805fe5829820.png" alt="">
             </a>
+            <a href="{{ route('goto.create') }}">
+                <h1 class="text-white text-center text-4xl">Shopee</h1>
+            </a>
 
-            <h1 class="text-white text-center text-4xl">Shopee</h1>
         </div>
         <div class="w-[50vw]"> {{-- start of search div --}}
             <div class="pt-2 relative mx-auto text-gray-600">
@@ -39,9 +41,10 @@
             </div>
         </div> {{-- end of search div --}}
         <div>
-            <img class="h-12 w-12"
-                src="https://w7.pngwing.com/pngs/510/403/png-transparent-shopping-cart-online-shopping-grocery-shop-angle-text-retail.png"
-                alt="">
+            <a href="{{ route('products.cart') }}">
+                <img class="h-12 w-12" src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="">
+            </a>
+
         </div>
     </div>
     <div class="flex gap-5 justify-center text-white text-sm"> {{-- start of 3rd of nav --}}

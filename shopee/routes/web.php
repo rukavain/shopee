@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewsController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -35,4 +37,9 @@ Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('pr
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 Route::post('/products/{product}/purchase', [ProductController::class, 'purchase'])->name('products.purchase');
+
+Route::post('/products/review', [ReviewsController::class, 'makereview'])->name('products.review');
+
+Route::get('/productscart', [ProductController::class, 'cart'])->name('products.cart');
+
 

@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <a href="{{ route('index') }}">Go Back</a>
+    <a href="{{ route('mainpage') }}">Go Back</a>
     <div class="flex justify-center items-center w-max h-max">
         <form class="w-full max-w-lg m-12" method="POST" action="{{ route('products.create') }}">
             @csrf
