@@ -33,3 +33,6 @@ Route::post('/products', [ProductController::class, 'store'])->name('products.cr
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+
+Route::post('/products/{product}/purchase', [ProductController::class, 'purchase'])->name('products.purchase');
+

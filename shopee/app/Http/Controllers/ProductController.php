@@ -17,7 +17,7 @@ class ProductController extends Controller
         ]);
 
         return view('mainpage', [
-            'products' => Product::orderBy('created_at', 'DESC')->paginate(10)
+            'products' => Product::orderBy('created_at', 'DESC')->paginate(8)
         ]);
     }
 
@@ -71,6 +71,7 @@ class ProductController extends Controller
             'sold' => request('sold'),
             'description' => request('description'),
             'image' => request('image'),
+            'stocks' => request('stocks'),
         ]);
 
             return redirect()->route('products.list');
@@ -84,5 +85,18 @@ class ProductController extends Controller
         return view('view', [
             'product'=>$product
         ]);
+    }
+    public function purchase(Product $product){
+
+    request()->validate([
+        'quantity' => 'required|integer|min:1|max:' . $product->stocks,
+    ]);
+    $product->decrement('stocks', request('quantity'));
+    $product->increment('sold', request('quantity'));
+
+    return redirect()->back();
+    }
+    public function cart(){
+        return view('cart');
     }
 }

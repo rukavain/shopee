@@ -34,15 +34,20 @@
             </div>
         </div>
         <div class="mr-52 pr-26">
-            <div class="flex justify-self-start flex-wrap">
+            <div class="flex justify-start items-center content-center align-center flex-wrap">
                 @foreach ($products as $product)
                     @include('card')
                 @endforeach
+
             </div>
+            <div class="my-12 mx-12">
+                {{ $products->links() }}
+            </div>
+
         </div>
 
     </div>
-    {{ $products->links() }}
+
 </body>
 
 </html>

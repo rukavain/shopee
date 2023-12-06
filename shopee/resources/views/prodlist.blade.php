@@ -120,7 +120,8 @@
                             <input autocomplete="off"
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white
                                  focus:border-gray-500"
-                                id="grid-last-name" type="url" placeholder="Doe" name="image" required>
+                                value="{{ $product->image }}" id="grid-last-name" type="url" placeholder="Doe"
+                                name="image" required>
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                             <button
@@ -154,6 +155,9 @@
                                             class="border-b dark:border-slate-600 font-medium p-4 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-center">
                                             Product Name</th>
                                         <th
+                                            class="border-b dark:border-slate-600 font-medium p-4 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-center">
+                                            Stocks Left</th>
+                                        <th
                                             class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-center">
                                             Update</th>
                                         <th
@@ -170,6 +174,9 @@
                                             <td
                                                 class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">
                                                 {{ $product->name }}</td>
+                                            <td
+                                                class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">
+                                                {{ $product->stocks }}</td>
                                             <td
                                                 class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
                                                 <a href="{{ route('products.edit', $product->id) }}"

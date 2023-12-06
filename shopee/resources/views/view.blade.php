@@ -50,14 +50,19 @@
                         <img class="h-6 w-6"
                             src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png"
                             alt="">
-                        <p class="text-md mx-4"> Sold {{ $product->sold }}</p>
+                        @if ($product->stocks == 0)
+                            <p class="text-md mx-4"> Out of Stock </p>
+                        @else
+                            <p class="text-md mx-4"> Stocks {{ $product->stocks }}</p>
+                        @endif
+
                         |
                         <div class="mx-4 font-semibold">
                             <h1>3.8K Ratings</h1>
                         </div>
                         |
                         <div class="mx-4 font-semibold">
-                            <h1>10.8K+ Sold</h1>
+                            <h1>Sold {{ $product->sold }}</h1>
                         </div>
                     </div>
                     <div class="py-1 bg-orange-600">
@@ -81,13 +86,20 @@
                         <h1 class="font-semibold">{{ $product->description }}</h1>
                     </div>
                     <div class="my-6">
+                    </div>
+                    <form method="POST" action="{{ route('products.purchase', $product->id) }}">
+                        @csrf
+                        <label for="quantity">Quantity:</label>
+                        <input class="py-2 px-4 font-semibold border-2" type="number" name="quantity" min="1"
+                            max="{{ $product->stocks }}" value="1">
                         <button
                             class="py-2 px-8 bg-red-100 text-sm mx-4 border-2 border-red-600 transition hover:opacity-75">Add
                             to cart</button>
-                        <button
+                        <a
                             class="py-2 px-8 bg-red-700 text-sm text-white mx-4 border-2 border-red-700 transition hover:opacity-75">Buy
-                            now</button>
-                    </div>
+                            now</a>
+                    </form>
+
                 </div>
             </div>
         </div>
