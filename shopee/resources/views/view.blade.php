@@ -128,16 +128,15 @@
                 <div class="md:w-3/5 w-3/4 px-10 flex flex-col gap-2 p-5 bg-gray-800 text-white">
                     <h1 class="py-5 text-lg">Reviews</h1>
                     <h1>Leave a review</h1>
-                    <form method="POST" action="{{ route('products.review') }}">
+                    <form method="POST" action="{{ route('create.review', $product->id) }}">
                         @csrf
                         <div class="flex justify-between bg-gray-600 bg-opacity-20 border border-gray-200 rounded-md">
-                            <input type='text' placeholder="Review" class="p-2 bg-transparent focus:outline-none">
+                            <input type='text' placeholder="Review" name="feedback"
+                                class="p-2 bg-transparent focus:outline-none">
                             <button class="px-4">Submit</button>
                         </div>
 
                     </form>
-
-
                     <!-- Tags -->
                     <div class="flex flex-wrap gap-2 w-full py-2">
                         <span class="px-2 p-1 hover:bg-blue-400 bg-gray-950 bg-opacity-30">Experience</span>
@@ -150,9 +149,7 @@
                     </div>
 
                     <!-- Item Container -->
-                    {{-- @foreach ($feedbacks as $feedback) --}}
                     @include('reviews')
-                    {{-- @endforeach --}}
                 </div>
             </div>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Review;
 
 class ProductController extends Controller
 {
@@ -102,6 +103,25 @@ class ProductController extends Controller
 
     return redirect()->back()->with('success', 'Successfully Added to Cart!');
     }
+    public function review(){
+        $reviews = Review::all();
 
+    return view('view', ['reviews' => $reviews]);
+    }
+    // public function review(){
+
+    //     request()->validate([
+    //         'feedback'=>'required|min:3|max:240'
+    //     ]);
+
+    //     $review = Review::create([
+    //         'feedback' => request()->get('feedback')
+    //     ]);
+    //     $review->save();
+
+    //     $reviews = Review::all();
+
+    //     return view('view', compact('reviews'));
+    // }
 
 }

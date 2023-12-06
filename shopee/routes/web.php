@@ -38,7 +38,7 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 
 Route::post('/products/{product}/purchase', [ProductController::class, 'purchase'])->name('products.purchase');
 
-Route::post('/productsreview', [ReviewsController::class, 'store'])->name('products.review');
+Route::post('/products/{product}', [ProductController::class, 'review'])->name('create.review');
 
 Route::get('/productscart', [ProductController::class, 'cart'])->name('products.cart');
 
