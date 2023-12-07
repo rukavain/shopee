@@ -14,11 +14,20 @@ class ProductController extends Controller
             'quantity' => 'required|integer|min:1|max:' . $product->stocks,
         ]);
 
-        $product->decrement('stocks', request('quantity'));
-        $product->increment('sold', request('quantity'));
+        if (request('action') === 'cart') {
+            $product->decrement('stocks', request('quantity'));
+            $product->increment('sold', request('quantity'));
+            return redirect()->back()->with('success', 'Added to cart successfully.');
+        } elseif (request('action') === 'buy') {
+            $product->decrement('stocks', request('quantity'));
+            $product->increment('sold', request('quantity'));
 
-        return redirect()->back()->with('success', 'Product purchased successfully.');
+            return redirect()->back()->with('success', 'Product purchased successfully.');
+        }
+
+        return redirect()->back()->with('error', 'Invalid action.');
     }
+
     public function index()
     {
         return view('layout');

@@ -107,13 +107,23 @@
                                 <label for="quantity">Quantity:</label>
                                 <input class="py-2 px-4 font-semibold border-2" type="number" name="quantity"
                                     min="1" max="{{ $product->stocks }}" value="1">
-                                <button
+                                <button value="cart" type="submit" name="action"
                                     class="py-2 px-8 bg-red-100 text-sm mx-4 border rounded border-red-600 transition hover:opacity-75">Add
                                     to cart</button>
-                                <a
+                                <button value="buy" type="submit" name="action"
                                     class="py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:opacity-75">Buy
-                                    now</a>
+                                    now</button>
                             </form>
+                            {{--
+                            <form method="POST" action="{{ route('buy', $product->id) }}">
+                                @csrf
+                                <label for="quantity">Quantity:</label>
+                                <input class="py-2 px-4 font-semibold border-2" type="number" name="quantity"
+                                    min="1" max="{{ $product->stocks }}" value="1">
+                                <button
+                                    class="py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:opacity-75">Buy
+                                    now</button>
+                            </form> --}}
                         </div>
                     </div>
 

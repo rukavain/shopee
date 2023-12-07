@@ -41,3 +41,5 @@ Route::post('/products/{product}', [ProductController::class, 'review'])->name('
 Route::get('/productscart', [ProductController::class, 'cart'])->name('products.cart');
 
 Route::post('/products/{product}/purchase', [ProductController::class, 'purchaseproduct'])->name('purchase');
+
+// Route::post('/products/{product}/buy', [ProductController::class, 'buy'])->name('buy');
