@@ -27,25 +27,28 @@
 @include('nav')
 
 <body>
-    <div class="flex justify-around items-start mx-24 max-lg:mx-0">
-        <div class="min-w-[25vw] max-lg:hidden">
-            <div class="flex justify-around my-5 flex-row ">
-                @include('filter')
+    <div class="flex flex-col justify-start items-around ">
+        <div class="flex justify-around items-start mx-24 max-lg:mx-0">
+            <div class="min-w-[25vw] max-lg:hidden">
+                <div class="flex justify-around my-5 flex-row ">
+                    @include('filter')
+                </div>
+            </div>
+            <div class="flex flex-col flex-wrap justify-center items-center ">
+                <div class="flex flex-wrap justify-center items-center ">
+                    @foreach ($products as $product)
+                        @include('card')
+                    @endforeach
+
+                </div>
+                <div class="my-12 mx-12">
+
+                </div>
+
             </div>
         </div>
-        <div class="flex flex-col flex-wrap justify-center items-center ">
-            <div class="flex flex-wrap justify-center items-center ">
-                @foreach ($products as $product)
-                    @include('card')
-                @endforeach
-
-            </div>
-            <div class="my-12 mx-12">
-                {{ $products->links() }}
-            </div>
-
-        </div>
-
+        <section class="mx-44 my-12">{{ $products->links() }}
+        </section>
     </div>
 
 </body>

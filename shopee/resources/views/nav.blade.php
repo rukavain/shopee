@@ -1,12 +1,12 @@
 <nav class="flex flex-col w-screen bg-orange-600 py-4">
-    <div class="flex justify-around items-start w-full my-3 max-md:hidden">
+    <div class="flex justify-around items-start w-full my-3">
         <div class="flex text-sm text-white gap-4 w-50">
             <a href="{{ route('products.list') }}">Products List |</a>
             <a>Start Selling |</a>
             <a>Download |</a>
             <a>Follow us on </a>
         </div>
-        <div class="flex text-md flex-evenly gap-4 w-50 text-white">
+        <div class="flex text-md flex-evenly gap-4 w-50 text-white  max-md:hidden">
             <a>Notifications |</a>
             <a>Help |</a>
             <a>English |</a>

@@ -16,7 +16,6 @@ class ProductController extends Controller
 
         if (request('action') === 'cart') {
             $product->decrement('stocks', request('quantity'));
-            $product->increment('sold', request('quantity'));
             return redirect()->back()->with('success', 'Added to cart successfully.');
         } elseif (request('action') === 'buy') {
             $product->decrement('stocks', request('quantity'));

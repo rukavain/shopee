@@ -55,11 +55,11 @@
 
     @if ($editing ?? false)
         <div class="flex flex-col justify-center items-center border border-2 p-5 rounded-md">
-            <div class="flex justify-center items-center w-max h-max">
+            <div class="flex justify-center items-center w-max h-max max-lg:max-w-[50vw]">
                 <form class="w-full max-w-lg" method="POST" action="{{ route('products.update', $product->id) }}">
                     @csrf
                     @method('put')
-                    <h1 class="font-semibold text-lg my-12">
+                    <h1 class="font-bold text-orange-600 mb-12 text-xl my-12 text-center ">
                         Edit a product</h1>
                     <div class="flex flex-wrap gap-4">
                         <div class="w-full md:w-1/2 px-3">
@@ -145,7 +145,7 @@
                     </div>
                     <div class="relative rounded-xl overflow-auto">
                         <div class="shadow-sm overflow-hidden my-8">
-                            <table class="border-collapse table-auto w-full text-sm">
+                            <table class="border-collapse w-full table-auto text-sm max-lg:max-w-[10vw]">
                                 <thead>
                                     <tr>
                                         <th
@@ -158,11 +158,10 @@
                                             class="border-b dark:border-slate-600 font-medium p-4 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-center">
                                             Stocks Left</th>
                                         <th
-                                            class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-center">
-                                            Update</th>
-                                        <th
-                                            class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-center">
-                                            Delete</th>
+                                            class="border-b dark:border-slate-600 font-medium p-4 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-center">
+                                            Actions</th>
+
+
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white dark:bg-slate-800">
@@ -178,11 +177,9 @@
                                                 class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">
                                                 {{ $product->stocks }}</td>
                                             <td
-                                                class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
+                                                class="flex flex-wrap gap-4 border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">
                                                 <a href="{{ route('products.edit', $product->id) }}"
                                                     class="mx-5 bg-white hover:bg-orange-600 border border-3 transition hover:text-white px-8 py-2 text-black hover:bg border-orange-600 rounded-md">Edit</a>
-                                            </td>
-                                            <td>
                                                 <form action="{{ route('products.destroy', $product->id) }}"
                                                     method="POST">
                                                     @csrf
@@ -190,7 +187,9 @@
                                                     <button
                                                         class="mx-5 bg-white hover:bg-orange-600 border border-3 transition hover:text-white px-8 py-2 text-black hover:bg border-orange-600 rounded-md">Delete</button>
                                                 </form>
+
                                             </td>
+
                                         </tr>
                                     @endforeach
                                 </tbody>

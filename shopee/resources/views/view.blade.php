@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{ config('app.icon') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,12 +30,12 @@
 <body>
     <div class="flex flex-col justify-center items-center">
         <div class="flex justify-center items-centermax-lg:p-0">
+
             <div
                 class="flex justify-center items-center bg-slate-100 py-8 border-2 rounded-md m-12 min-w-[75vw]
                     max-md:min-w-[35vw] max-md:px-12
                     ">
-                <div></div>
-                <div></div>
+
                 <div class="flex max-md:flex-col justify-start items-center"> {{-- - start of img container - --}}
                     <div class="mx-12">
                         <img class="h-96 w-96 rounded-md object-cover max-md:w-54 max-md:h-54 max-md:w-screen max-md:mb-8"

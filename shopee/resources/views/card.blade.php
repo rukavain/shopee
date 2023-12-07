@@ -4,7 +4,7 @@
     @else
         <a href="{{ route('products.show', $product->id) }}">
             <div id="card"
-                class="flex flex-col justify-start items-start align-start content-start flex-wrap border-2 m-2 rounded-md p-4 min-w-12">
+                class="flex flex-col justify-start items-start align-start content-start flex-wrap border-2 m-2 rounded-md p-4 min-w-12 max-w-[40vw]">
 @endif
 
 <div class="relative">
