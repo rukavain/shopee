@@ -27,14 +27,14 @@
 @include('nav')
 
 <body>
-    <div class="flex justify-around items-start">
-        <div class="ml-44 min-w-[25vw]">
-            <div class="flex justify-around my-5 flex-row">
+    <div class="flex justify-around items-start mx-24 max-lg:mx-0">
+        <div class="min-w-[25vw] max-lg:hidden">
+            <div class="flex justify-around my-5 flex-row ">
                 @include('filter')
             </div>
         </div>
-        <div class="mr-52 pr-26">
-            <div class="flex justify-start items-center content-center align-center flex-wrap">
+        <div class="flex flex-col flex-wrap justify-center items-center ">
+            <div class="flex flex-wrap justify-center items-center ">
                 @foreach ($products as $product)
                     @include('card')
                 @endforeach

@@ -28,7 +28,7 @@
 <body>
     {{-- start of by category section --}}
 
-    <div class="flex border border-2 p-3 rounded-md my-4">
+    <div class="flex border border-2 p-3 rounded-md my-4 ">
         <div>
             <div class="">
                 <h1 class="font-semibold text-center">SEARCH FILTER</h1>

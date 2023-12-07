@@ -1,5 +1,5 @@
-<nav class="flex flex-col bg-orange-600 py-4">
-    <div class="flex justify-around items-start w-full my-3 ">
+<nav class="flex flex-col w-screen bg-orange-600 py-4">
+    <div class="flex justify-around items-start w-full my-3 max-md:hidden">
         <div class="flex text-sm text-white gap-4 w-50">
             <a href="{{ route('products.list') }}">Products List |</a>
             <a>Start Selling |</a>
@@ -16,15 +16,15 @@
     <div class="flex justify-around items-center">
         <div class="flex justify-center items-center">
             <a href="{{ route('mainpage') }}">
-                <img class="object-fit h-24 w-24"
+                <img class="object-fit h-24 w-24 max-md:h-12 max-md:w-12"
                     src="https://i.pinimg.com/originals/6d/b9/31/6db931827443a7455a4b805fe5829820.png" alt="">
             </a>
             <a href="{{ route('goto.create') }}">
-                <h1 class="text-white text-center text-4xl">Shopee</h1>
+                <h1 class="text-white text-center text-4xl  max-md:text-lg">Shopee</h1>
             </a>
 
         </div>
-        <div class="w-[50vw]"> {{-- start of search div --}}
+        <div class="w-[50vw] max-md:hidden"> {{-- start of search div --}}
             <div class="pt-2 relative mx-auto text-gray-600">
                 <input
                     class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none w-[50vw]"
@@ -42,12 +42,20 @@
         </div> {{-- end of search div --}}
         <div>
             <a href="{{ route('products.cart') }}">
-                <img class="h-12 w-12" src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="">
+                <img class="h-12 w-12  max-md:h-8 max-md:w-8"
+                    src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="">
             </a>
-
         </div>
+        <div>
+            <a href="{{ route('products.cart') }}">
+                <img class="hidden h-12 w-12  max-md:h-8 max-md:w-8 max-md:block "
+                    src="https://t3.ftcdn.net/jpg/02/36/03/66/360_F_236036622_ctUjaJTkIANvk9pJh0s5ZJRDWbM8ggT9.jpg"
+                    alt="">
+            </a>
+        </div>
+
     </div>
-    <div class="flex gap-5 justify-center text-white text-sm"> {{-- start of 3rd of nav --}}
+    <div class="flex gap-5 justify-center text-white text-sm max-lg:hidden"> {{-- start of 3rd of nav --}}
         <h1>Logitech Mouse</h1>
         <h1>Logitech Webcam</h1>
         <h1>Logitech Wireless Gaming Mouse</h1>
@@ -56,5 +64,27 @@
         <h1>Logitech Speaker</h1>
         <h1>Type C Hub</h1>
         <h1>Ergonomic Mouse</h1>
+    </div>
+    <div id="dropdownNavbar"
+        class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+            <li>
+                <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+            </li>
+            <li>
+                <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+            </li>
+            <li>
+                <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+            </li>
+        </ul>
+        <div class="py-1">
+            <a href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                out</a>
+        </div>
     </div>
 </nav>

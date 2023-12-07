@@ -1,10 +1,10 @@
 @if ($product->stocks == 0)
     <div id="card"
-        class="flex flex-col border border-2 min-h-[36vh] rounded-md mt-8 p-3 mx-6 max-w-[10vw] h-min cursor-pointer transition pointer-events-none opacity-50 disabled disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200">
+        class="flex flex-col border flex-wrap border-2 min-h-[36vh] rounded-md mt-8 p-3 mx-6 h-min cursor-pointer transition pointer-events-none opacity-50 disabled disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200">
     @else
         <a href="{{ route('products.show', $product->id) }}">
             <div id="card"
-                class="flex flex-col border border-2 min-h-[36vh] rounded-md mt-8 p-3 mx-6 max-w-[10vw] h-min hover:border-orange-600 cursor-pointer transition">
+                class="flex flex-col justify-start items-start align-start content-start flex-wrap border-2 m-2 rounded-md p-4 min-w-12">
 @endif
 
 <div class="relative">
@@ -14,26 +14,26 @@
         </div>
     @else
     @endif
-    <img class="h-48 w-48 rounded-md mb-4 object-cover" src={{ $product->image }} alt="">
+    <img class="h-48 w-48 rounded-md mb-4 object-cover max-lg:h-24 max-lg:w-24" src={{ $product->image }} alt="">
 </div>
 <div>
-    <p class="text-md font-semibold">{{ $product->name }}</p>
+    <p class="text-md font-semibold max-md:text-sm">{{ $product->name }}</p>
 </div>
-<div class="flex gap-2 justify-start items-center">
+<div class="flex max-md:flex-col gap-2 justify-start items-center">
     <p class="line-through text-sm">₱2,999</p>
     <p class="font-bold text-md text-orange-600">₱{{ $product->price }}</p>
 </div>
 <div class="flex gap-1 my-3 justify-start items-center">
-    <img class="h-2 w-2" src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png"
-        alt="">
-    <img class="h-2 w-2" src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png"
-        alt="">
-    <img class="h-2 w-2" src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png"
-        alt="">
-    <img class="h-2 w-2" src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png"
-        alt="">
-    <img class="h-2 w-2" src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png"
-        alt="">
+    <img class="h-2 w-2 max-md:hidden"
+        src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png" alt="">
+    <img class="h-2 w-2 max-md:hidden"
+        src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png" alt="">
+    <img class="h-2 w-2 max-md:hidden"
+        src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png" alt="">
+    <img class="h-2 w-2 max-md:hidden"
+        src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png" alt="">
+    <img class="h-2 w-2 max-md:hidden"
+        src="https://static.vecteezy.com/system/resources/thumbnails/001/189/165/small/star.png" alt="">
     @if ($product->stocks == 0)
         <p class="text-sm"> Sold Out</p>
     @else
