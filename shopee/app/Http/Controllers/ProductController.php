@@ -8,27 +8,41 @@ use App\Models\Review;
 
 class ProductController extends Controller
 {
-    public function index(){
+    public function purchaseproduct(Product $product)
+    {
+        request()->validate([
+            'quantity' => 'required|integer|min:1|max:' . $product->stocks,
+        ]);
+
+        $product->decrement('stocks', request('quantity'));
+        $product->increment('sold', request('quantity'));
+
+        return redirect()->back()->with('success', 'Product purchased successfully.');
+    }
+    public function index()
+    {
         return view('layout');
     }
-    public function cart(Product $products){
+    public function cart(Product $products)
+    {
         $products::all();
         return view('cart', [
-            'products'=>Product::orderBy('created_at', 'DESC')->get()
+            'products' => Product::orderBy('created_at', 'DESC')->get()
         ]);
     }
 
-    public function mainpage(){
+    public function mainpage()
+    {
 
-        $product =  new Product([
-        ]);
+        $product =  new Product([]);
 
         return view('mainpage', [
             'products' => Product::orderBy('created_at', 'DESC')->paginate(8)
         ]);
     }
 
-    public function store() {
+    public function store()
+    {
 
         request()->validate([
             'image' => 'required|url'
@@ -36,33 +50,37 @@ class ProductController extends Controller
 
         $product = Product::create([
 
-            'name'=> request()->get('name', ''),
-            'price'=> request()->get('price', ''),
-            'description'=> request()->get('description', ''),
-            'stocks'=> request()->get('stocks', ''),
-            'image'=> request()->get('image', ''),
+            'name' => request()->get('name', ''),
+            'price' => request()->get('price', ''),
+            'description' => request()->get('description', ''),
+            'stocks' => request()->get('stocks', ''),
+            'image' => request()->get('image', ''),
             'sold' => request()->get('sold', ''),
         ]);
 
         $product->save();
         return redirect()->route('mainpage');
     }
-    public function gotocreate(){
+    public function gotocreate()
+    {
         return view('create');
     }
-    public function gotoprodlist(Product $products) {
-        return view('prodlist',[
+    public function gotoprodlist(Product $products)
+    {
+        return view('prodlist', [
             'products' => Product::all()
         ]);
     }
 
-    public function edit(Product $product){
+    public function edit(Product $product)
+    {
         $editing = true;
 
         return view('prodlist', compact('product', 'editing'));
     }
 
-    public function update(Product $product){
+    public function update(Product $product)
+    {
         request()->validate([
             'image' => 'required|url',
             'name' => 'required',
@@ -81,32 +99,28 @@ class ProductController extends Controller
             'stocks' => request('stocks'),
         ]);
 
-            return redirect()->route('products.list');
+        return redirect()->route('products.list');
     }
-    public function destroy(Product $id){
+    public function destroy(Product $id)
+    {
         $id->delete();
 
         return redirect()->route('mainpage');
     }
-    public function show(Product $product){
+    public function show(Product $product)
+    {
         return view('view', [
-            'product'=>$product
+            'product' => $product
         ]);
     }
-    public function purchase(Product $product){
+    // Example method in the ProductController
 
-    request()->validate([
-        'quantity' => 'required|integer|min:1|max:' . $product->stocks,
-    ]);
-    $product->decrement('stocks', request('quantity'));
-    $product->increment('sold', request('quantity'));
 
-    return redirect()->back()->with('success', 'Successfully Added to Cart!');
-    }
-    public function review(){
+    public function review()
+    {
         $reviews = Review::all();
 
-    return view('view', ['reviews' => $reviews]);
+        return view('view', ['reviews' => $reviews]);
     }
     // public function review(){
 

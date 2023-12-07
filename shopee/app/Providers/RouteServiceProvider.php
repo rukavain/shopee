@@ -8,9 +8,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
+
+
 class RouteServiceProvider extends ServiceProvider
 {
     /**
+     * The namespace for controller classes.
+     *
+     * @var string|null
+     */
+    protected $namespace = 'App\Http\Controllers';
+    /**
+     *
      * The path to your application's "home" route.
      *
      * Typically, users are redirected here after authentication.
