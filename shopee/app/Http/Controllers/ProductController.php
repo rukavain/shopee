@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Review;
 
+
 class ProductController extends Controller
 {
     public function purchaseproduct(Product $product)
@@ -114,31 +115,30 @@ class ProductController extends Controller
     }
     public function show(Product $product)
     {
+        $reviews = $product->reviews()->latest()->get();
         return view('view', [
-            'product' => $product
+            'product' => $product,
+            'reviews' => $reviews,
         ]);
     }
-    // Example method in the ProductController
     public function review()
     {
         $reviews = Review::all();
 
         return view('view', ['reviews' => $reviews]);
     }
-    // public function review(){
+    public function submitReview(Product $product)
+    {
+        request()->validate([
+            'review' => 'required|min:3|max:255',
+            'rating' => 'required|integer|min:1|max:5',
+        ]);
 
-    //     request()->validate([
-    //         'feedback'=>'required|min:3|max:240'
-    //     ]);
+        $product->reviews()->create([
+            'feedback' => request('review'),
+            'rating' => request('rating'),
+        ]);
 
-    //     $review = Review::create([
-    //         'feedback' => request()->get('feedback')
-    //     ]);
-    //     $review->save();
-
-    //     $reviews = Review::all();
-
-    //     return view('view', compact('reviews'));
-    // }
-
+        return redirect()->back()->with('success', 'Review submitted successfully.');
+    }
 }

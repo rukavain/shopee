@@ -9,7 +9,5 @@ class Review extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'feedback'
-    ];
+    protected $fillable = ['feedback', 'product_id'];
 }

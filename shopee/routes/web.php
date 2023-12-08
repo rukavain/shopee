@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ReviewsController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -42,4 +43,6 @@ Route::get('/productscart', [ProductController::class, 'cart'])->name('products.
 
 Route::post('/products/{product}/purchase', [ProductController::class, 'purchaseproduct'])->name('purchase');
 
-// Route::post('/products/{product}/buy', [ProductController::class, 'buy'])->name('buy');
+Route::get('/products/review', [ReviewController::class, 'index'])->name('review.index');
+
+Route::post('/products/{product}/submit-review', [ProductController::class, 'submitReview'])->name('products.submitReview');

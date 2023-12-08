@@ -106,9 +106,7 @@
                                     </div>
                                 @endif
                             </div>
-
                             <form method="POST" action="{{ route('purchase', $product->id) }}">
-
                                 @csrf
                                 <label for="quantity">Quantity:</label>
                                 <input class="py-2 px-4 font-semibold border-2 max-md:py-0 max-md:px-2 max-md:m-4"
@@ -120,16 +118,38 @@
                                 <button value="buy" type="submit" name="action"
                                     class="py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:opacity-75 max-md:text-xs max-md:px-4">Buy
                                     now</button>
-
                             </form>
-
-
                         </div>
                     </div>
 
                 </div>
             </div>
 
+        </div>
+        <div class="border-2 border-slate-200 p-5 rounded-md relative my-4">
+            <form method="POST" action="{{ route('products.submitReview', $product->id) }}">
+                @csrf
+                <label for="review">Leave a review:</label>
+                <textarea name="review" rows="4" cols="50"></textarea>
+                <br>
+                <label for="rating">Rating (1-5):</label>
+                <input type="number" name="rating" min="1" max="5">
+                <br>
+                <button type="submit">Submit Review</button>
+            </form>
+
+            <div>
+                <h2>Reviews</h2>
+                @forelse ($reviews as $review)
+                    <div>
+                        <p>{{ $review->feedback }}</p>
+                        <p>Rating: {{ $review->rating }}</p>
+                        <!-- Add any other review details you want to display -->
+                    </div>
+                @empty
+                    <p>No reviews yet.</p>
+                @endforelse
+            </div>
         </div>
     </div>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
