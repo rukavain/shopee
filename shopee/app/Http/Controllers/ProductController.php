@@ -44,11 +44,12 @@ class ProductController extends Controller
     }
     public function mainpage()
     {
-
-        $product =  new Product([]);
-
+        $product = Product::orderBy('created_at', 'DESC');
+        if (request()->has('search')) {
+            $product = $product->where('name', 'like', '%' . request()->get('search', '') . '%');
+        }
         return view('mainpage', [
-            'products' => Product::orderBy('created_at', 'DESC')->paginate(8)
+            'products' => $product->paginate(8)
         ]);
     }
     public function store()

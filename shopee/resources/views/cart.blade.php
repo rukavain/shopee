@@ -92,8 +92,11 @@
                             class="flex justify-between bg-white rounded-lg min-w-[75vw] max-lg:min-w-[35vw] py-4 px-4 my-6 border-2 border-green-200 max-lg:px-2 py-2">
                             <div class="flex grow-1 max-lg:grow-0">
                                 <input type="checkbox" class="mx-6 max-lg:mx-2">
-                                <img class="h-32 w-32 object-cover max-lg:h-24 max-lg:w-24" src="{{ $product->image }}"
-                                    alt="">
+                                <a href="{{ route('products.show', $product->id) }}">
+                                    <img class="h-32 w-32 object-cover max-lg:h-24 max-lg:w-24"
+                                        src="{{ $product->image }}" alt="">
+                                </a>
+
                                 <div class="mx-8 max-lg:mx-2">
                                     <h1 class=""> {{ $product->name }} </h1>
                                 </div>
@@ -107,7 +110,6 @@
                                     class="text-slate-700 text-sm px-20 py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:opacity-75 cursor-pointer max-lg:px-2 max-lg:text-xs text-center max-lg:py-2 max-lg:mx-2">Check
                                     out</a>
                             </div>
-
                         </div>
                         <div>
                             <div class="border p-4 bg-slate-50 flex justify-start items-center">

@@ -129,22 +129,31 @@
         <div class="border-2 border-slate-200 p-5 rounded-md relative my-4">
             <form method="POST" action="{{ route('products.submitReview', $product->id) }}">
                 @csrf
-                <label for="review">Leave a review:</label>
-                <textarea name="review" rows="4" cols="50"></textarea>
+                <div class="flex flex-col">
+                    <label class="text-xl text-orange-600 font-bold my-2" for="review">Leave a review:</label>
+                    <textarea class="border-2 border-slate-200 rounded-md" name="review" rows="4" cols="50"></textarea>
+                </div>
                 <br>
-                <label for="rating">Rating (1-5):</label>
-                <input type="number" name="rating" min="1" max="5">
+                <div class="flex justify-start items-start">
+                    <label class="text-md text-orange-600 font-bold " for="rating">Rating (1-5):</label>
+                    <input class="rounded-md px-4 py-2 border-2 border-slate-200 mx-4" type="number" name="rating"
+                        min="1" max="5">
+                </div>
                 <br>
-                <button type="submit">Submit Review</button>
+                <button
+                    class="px-6 py-2 border-2 border-orange-600 rounded-md text-slate-700 transition hover:bg-orange-600 hover:text-white text-md font-bold"
+                    type="submit">Submit Review</button>
             </form>
-
-            <div>
-                <h2>Reviews</h2>
+            <div class="my-4">
+                <h2 class="my-2 text-md text-orange-600 font-bold">Reviews</h2>
                 @forelse ($reviews as $review)
-                    <div>
-                        <p>{{ $review->feedback }}</p>
-                        <p>Rating: {{ $review->rating }}</p>
-                        <!-- Add any other review details you want to display -->
+                    <div class="border-2 border-slate-200 p-4 rounded-md my-4">
+                        <p class="text-sm">Review: </p>
+                        <span class="text-md font-semibold">
+                            {{ $review->feedback }}</span>
+                        <br>
+                        <p class="text-sm">Rating: {{ $review->rating }}</p>
+                        <p class="text-sm">Timestamp: {{ $review->created_at }}</p>
                     </div>
                 @empty
                     <p>No reviews yet.</p>

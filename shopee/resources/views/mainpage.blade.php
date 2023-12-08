@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="flex flex-col flex-wrap justify-center items-center ">
-                <div class="flex flex-wrap justify-center items-center ">
+                <div class="flex flex-wrap justify-start items-start ">
                     @foreach ($products as $product)
                         @include('card')
                     @endforeach
