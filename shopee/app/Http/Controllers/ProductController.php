@@ -34,8 +34,12 @@ class ProductController extends Controller
     public function cart(Product $products)
     {
         $products::all();
+        $products = Product::orderBy('created_at', 'DESC');
+        if (request()->has('search')) {
+            $products = $products->where('name', 'like', '%' . request()->get('search', '') . '%');
+        }
         return view('cart', [
-            'products' => Product::orderBy('created_at', 'DESC')->get()
+            'products' => $products->get()
         ]);
     }
     public function mainpage()
