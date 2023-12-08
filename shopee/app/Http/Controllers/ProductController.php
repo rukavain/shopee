@@ -23,7 +23,6 @@ class ProductController extends Controller
 
             return redirect()->back()->with('success', 'Product purchased successfully.');
         }
-
         return redirect()->back()->with('error', 'Invalid action.');
     }
 
@@ -38,7 +37,6 @@ class ProductController extends Controller
             'products' => Product::orderBy('created_at', 'DESC')->get()
         ]);
     }
-
     public function mainpage()
     {
 
@@ -48,7 +46,6 @@ class ProductController extends Controller
             'products' => Product::orderBy('created_at', 'DESC')->paginate(8)
         ]);
     }
-
     public function store()
     {
 
@@ -122,8 +119,6 @@ class ProductController extends Controller
         ]);
     }
     // Example method in the ProductController
-
-
     public function review()
     {
         $reviews = Review::all();
