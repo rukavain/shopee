@@ -106,9 +106,12 @@
                                 <p class="text-slate-700 text-md px-20 max-lg:px-4 max-lg:text-xs">
                                     ₱{{ $product->price }}</p>
                                 <p class="text-orange-600 text-md px-20 max-lg:px-4 max-lg:text-xs">₱227</p>
-                                <a
+
+                                <a href="{{ route('products.checkout', $product->id) }}"
                                     class="text-slate-700 text-sm px-20 py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:opacity-75 cursor-pointer max-lg:px-2 max-lg:text-xs text-center max-lg:py-2 max-lg:mx-2">Check
                                     out</a>
+
+
                             </div>
                         </div>
                         <div>
@@ -148,9 +151,9 @@
                 <div class="flex justify-center items-center gap-12">
                     <h1>Total (0 item): </h1>
                     <h1>₱0</h1>
-                    <button
+                    <a
                         class="text-white py-2 px-12 bg-orange-600 hover:bg-white hover:text-orange-600 border border-orange-600 transition">Check
-                        Out</button>
+                        Out</a>
                 </div>
             </div>
         </div>

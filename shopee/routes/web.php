@@ -46,3 +46,5 @@ Route::post('/products/{product}/purchase', [ProductController::class, 'purchase
 Route::get('/products/review', [ReviewController::class, 'index'])->name('review.index');
 
 Route::post('/products/{product}/submit-review', [ProductController::class, 'submitReview'])->name('products.submitReview');
+
+Route::get('/checkout/{product}', [ProductController::class, 'checkout'])->name('products.checkout');

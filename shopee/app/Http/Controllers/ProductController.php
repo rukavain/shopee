@@ -146,4 +146,10 @@ class ProductController extends Controller
 
         return redirect()->back()->with('success', 'Review submitted successfully.');
     }
+    public function checkout(Product $product)
+    {
+        return view('checkout', [
+            'product' =>  $product
+        ]);
+    }
 }
