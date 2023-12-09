@@ -84,7 +84,7 @@
                 <p class="text-slate-700 text-sm px-20 max-lg:px-2 max-lg:text-xs">Actions</p>
             </div>
         </div>
-        <div class="bg-slate-200 my-4 p-8 max-lg:min-w-[10vw] max-lg:p-0">
+        <div class=" my-4 p-8 max-lg:min-w-[10vw] max-lg:p-0">
             @foreach ($products as $product)
                 <div class="flex flex-col max-lg:min-w-[35vw]">
                     <div class="">
@@ -122,6 +122,37 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div
+            class="sticky bottom-0 bg-white flex flex-col border-2 border-slate-200 w-screen max-w-[75vw] rounded-md shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]">
+            <div class="flex flex-row-reverse gap-28 py-2 px-4">
+                <h1>Select or enter code</h1>
+                <h1>Plaform Voucher</h1>
+            </div>
+            <div class="flex flex-row-reverse border-y border-dashed px-4">
+                <div class="flex gap-28 my-4 px-4">
+                    <input type="checkbox" disabled>
+                    <h1 class="text-slate-500" @disabled(true)>Shopee Coins</h1>
+                    <h1>No item selected</h1>
+                    <p class="text-slate-300">-₱0</p>
+                </div>
+            </div>
+            <div class="flex justify-around my-6 px-4">
+                <div class="flex justify-center items-center gap-8">
+                    <input type="checkbox">
+                    <h1>Select All (12)</h1>
+                    <h1>Delete</h1>
+                    <h1>Remove inactive products</h1>
+                    <h1>Move to My Likes</h1>
+                </div>
+                <div class="flex justify-center items-center gap-12">
+                    <h1>Total (0 item): </h1>
+                    <h1>₱0</h1>
+                    <button
+                        class="text-white py-2 px-12 bg-orange-600 hover:bg-white hover:text-orange-600 border border-orange-600 transition">Check
+                        Out</button>
+                </div>
+            </div>
         </div>
     </div>
 
