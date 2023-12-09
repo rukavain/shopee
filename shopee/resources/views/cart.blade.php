@@ -89,7 +89,7 @@
                 <div class="flex flex-col max-lg:min-w-[35vw]">
                     <div class="">
                         <div
-                            class="flex justify-between bg-white rounded-lg min-w-[75vw] max-lg:min-w-[35vw] py-4 px-4 my-6 border-2 border-green-200 max-lg:px-2 py-2">
+                            class="flex justify-between bg-white rounded-lg min-w-[75vw] max-lg:min-w-[35vw] py-4 px-4 my-6 border-2 border-slate-200 max-lg:px-2 py-2">
                             <div class="flex grow-1 max-lg:grow-0">
                                 <input type="checkbox" class="mx-6 max-lg:mx-2">
                                 <a href="{{ route('products.show', $product->id) }}">
@@ -108,7 +108,7 @@
                                 <p class="text-orange-600 text-md px-20 max-lg:px-4 max-lg:text-xs">₱227</p>
 
                                 <a href="{{ route('products.checkout', $product->id) }}"
-                                    class="text-slate-700 text-sm px-20 py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:opacity-75 cursor-pointer max-lg:px-2 max-lg:text-xs text-center max-lg:py-2 max-lg:mx-2">Check
+                                    class="text-slate-700 text-sm px-20 py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:bg-white border-2 border-red-700 hover:text-red-700 font-semibold cursor-pointer max-lg:px-2 max-lg:text-xs text-center max-lg:py-2 max-lg:mx-2">Check
                                     out</a>
 
 
@@ -151,9 +151,9 @@
                 <div class="flex justify-center items-center gap-12">
                     <h1>Total (0 item): </h1>
                     <h1>₱0</h1>
-                    <a
+                    <button
                         class="text-white py-2 px-12 bg-orange-600 hover:bg-white hover:text-orange-600 border border-orange-600 transition">Check
-                        Out</a>
+                        Out</button>
                 </div>
             </div>
         </div>
