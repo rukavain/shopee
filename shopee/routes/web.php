@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [ProductController::class, 'index'])->name('index');
+// Route::get('/', [ProductController::class, 'index'])->name('index');
 
 Route::get('/productslist', [ProductController::class, 'gotoprodlist'])->name('products.list');
 
@@ -27,7 +27,7 @@ Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name
 
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 
-Route::get('/mainpage', [ProductController::class, 'mainpage'])->name('mainpage');
+Route::get('/', [ProductController::class, 'mainpage'])->name('mainpage');
 
 Route::get('/makeproducts', [ProductController::class, 'gotocreate'])->name('goto.create');
 

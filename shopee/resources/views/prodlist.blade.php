@@ -201,7 +201,7 @@
 
         </div>
     @endif
-
+    @include('footer')
 </body>
 
 </html>

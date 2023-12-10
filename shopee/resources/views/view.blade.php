@@ -65,7 +65,6 @@
                                 @else
                                     <p class="text-md mx-4 max-lg:text-sm"> Stocks {{ $product->stocks }}</p>
                                 @endif
-
                                 |
                                 <div class="mx-4 font-semibold max-lg:text-sm">
                                     <h1>3.8K Ratings</h1>
@@ -98,7 +97,7 @@
                             <div class="my-4">
                                 @if (session('success'))
                                     <div
-                                        class="bg-green-50 border border-green-500 text-green-900 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-green-500">
+                                        class="bg-white border-2 border-orange-600 text-slate-800 font-semibold text-md placeholder-green-700 dark:placeholder-green-500 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-green-500">
 
                                         <button class="close-alert " onclick="closeAlert(this)">
                                             {{ session('success') }}
@@ -113,11 +112,11 @@
                                     type="number" name="quantity" min="1" max="{{ $product->stocks }}"
                                     value="1">
                                 <button value="cart" type="submit" name="action"
-                                    class="py-2 px-8 bg-red-100 text-sm mx-4 border rounded border-red-600 transition hover:opacity-75 max-md:text-xs max-md:px-4">Add
+                                    class="py-2 px-8 bg-red-100 text-sm mx-4 border rounded border-red-700 transition hover:bg-red-700 hover:text-white font-semibold text-red-900 max-md:text-xs max-md:px-4">Add
                                     to cart</button>
-                                <button value="buy" type="submit" name="action"
-                                    class="py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:opacity-75 max-md:text-xs max-md:px-4">Buy
-                                    now</button>
+                                <a type="submit" href="{{ route('products.checkout', $product->id) }}"
+                                    class="py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:bg-white font-semibold hover:text-red-700 max-md:text-xs max-md:px-4">Buy
+                                    now</a>
                             </form>
                         </div>
                     </div>
@@ -167,6 +166,7 @@
             element.parentElement.style.display = 'none';
         }
     </script>
+    @include('footer')
 </body>
 
 </html>

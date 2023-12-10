@@ -50,6 +50,8 @@
         <section class="mx-44 my-12">{{ $products->links() }}
         </section>
     </div>
+
+    @include('footer')
 </body>
 
 </html>

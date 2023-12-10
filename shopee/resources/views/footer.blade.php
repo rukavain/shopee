@@ -27,21 +27,9 @@
 </head>
 
 <body>
-    {{-- CONTENT GOES HERE --}}
-    <a href="{{ route('mainpage') }}"
-        class="bg-orange-600 m-12 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded transition">
-        Go to shopee
-    </a>
-    <a href="{{ route('goto.create') }}"
-        class="bg-green-600 m-12 hover:opacity-75 text-white font-bold py-2 px-4 rounded transition">
-        Add product
-    </a>
-    <a href="{{ route('products.list') }}"
-        class="bg-green-600 m-12 hover:opacity-75 text-white font-bold py-2 px-4 rounded transition">
-        View Products
-    </a>
-
-    @include('footer')
+    <footer class="py-6 flex justify-center items-center bg-orange-600">
+        <h1 class="text-white text-sm font-semibold">ivandev.com &copy;</h1>
+    </footer>
 </body>
 
 </html>
