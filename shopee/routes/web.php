@@ -39,7 +39,6 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 
 Route::post('/products/{product}', [ProductController::class, 'review'])->name('create.review');
 
-// Route::get('/productscart', [ProductController::class, 'cart'])->name('products.cart');
 Route::get('/productscart', [ProductController::class, 'cart'])->name('products.cart');
 
 Route::post('/products/{product}/purchase', [ProductController::class, 'purchaseproduct'])->name('purchase');
@@ -55,3 +54,5 @@ Route::post('/add-to-cart/{product}', [ProductController::class, 'addToCart'])->
 Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.show');
 
 Route::delete('/cart/{product}', [ProductController::class, 'removeFromCart'])->name('cart.destroy');
+
+Route::get('/completeorder/{id}', [ProductController::class, 'completeorder'])->name('products.complete');

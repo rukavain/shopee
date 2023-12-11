@@ -213,9 +213,13 @@
                 <hr>
                 <div class="my-8 mx-4"> {{-- 3rd div --}}
                     <div class="flex flex-row-reverse">
-                        <button
+                        {{-- <form method="POST" action="">
+                            @csrf --}}
+                        <a href="{{ route('products.complete', $product->id) }}"
                             class="px-12 py-2 text-white bg-orange-600 font-semibold hover:bg-white hover:text-orange-600 border border-orange-600 transition">Place
-                            Order</button>
+                            Order</a>
+                        {{-- </form> --}}
+
                     </div>
                 </div> {{-- end of 3rd div --}}
             </div>

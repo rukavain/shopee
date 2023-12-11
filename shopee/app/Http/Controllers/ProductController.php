@@ -221,4 +221,10 @@ class ProductController extends Controller
             return redirect()->route('cart.show')->with('error', 'Product not found in the cart.');
         }
     }
+    public function completeorder(Product $product)
+    {
+        return view('order-complete', [
+            'product' => $product
+        ]);
+    }
 }
