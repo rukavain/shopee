@@ -41,7 +41,7 @@
             </form>
         </div> {{-- end of search div --}}
         <div>
-            <a href="{{ route('products.cart') }}">
+            <a href="{{ route('cart.show') }}">
                 <img class="h-12 w-12  max-md:h-8 max-md:w-8"
                     src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="">
             </a>

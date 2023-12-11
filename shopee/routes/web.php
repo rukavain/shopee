@@ -48,3 +48,7 @@ Route::get('/products/review', [ReviewController::class, 'index'])->name('review
 Route::post('/products/{product}/submit-review', [ProductController::class, 'submitReview'])->name('products.submitReview');
 
 Route::get('/checkout/{product}', [ProductController::class, 'checkout'])->name('products.checkout');
+
+Route::post('/add-to-cart/{product}', [ProductController::class, 'addToCart'])->name('addToCart');
+
+Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.show');

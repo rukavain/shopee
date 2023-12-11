@@ -84,47 +84,43 @@
                 <p class="text-slate-700 text-sm px-20 max-lg:px-2 max-lg:text-xs">Actions</p>
             </div>
         </div>
-        <div class=" my-4 p-8 max-lg:min-w-[10vw] max-lg:p-0">
-            @foreach ($products as $product)
+        <div class="my-4 p-8 max-lg:min-w-[10vw] max-lg:p-0">
+            @forelse ($cartItems as $cartItem)
                 <div class="flex flex-col max-lg:min-w-[35vw]">
                     <div class="">
                         <div
                             class="flex justify-between bg-white rounded-lg min-w-[75vw] max-lg:min-w-[35vw] py-4 px-4 my-6 border-2 border-slate-200 max-lg:px-2 py-2">
                             <div class="flex grow-1 max-lg:grow-0">
                                 <input type="checkbox" class="mx-6 max-lg:mx-2">
-                                <a href="{{ route('products.show', $product->id) }}">
+                                <a href="{{ route('products.show', $cartItem->product->id) }}">
                                     <img class="h-32 w-32 object-cover max-lg:h-24 max-lg:w-24"
-                                        src="{{ $product->image }}" alt="">
+                                        src="{{ $cartItem->product->image }}" alt="{{ $cartItem->product->name }}">
                                 </a>
 
                                 <div class="mx-8 max-lg:mx-2">
-                                    <h1 class=""> {{ $product->name }} </h1>
+                                    <h1 class=""> {{ $cartItem->product->name }} </h1>
                                 </div>
                             </div>
                             <div class="flex gap-4 justify-center items-center max-lg:gap-0">
-                                <p class="text-slate-700 text-md px-20 max-lg:px-4 max-lg:text-xs">9</p>
                                 <p class="text-slate-700 text-md px-20 max-lg:px-4 max-lg:text-xs">
-                                    ₱{{ $product->price }}</p>
-                                <p class="text-orange-600 text-md px-20 max-lg:px-4 max-lg:text-xs">₱227</p>
+                                    {{ $cartItem->quantity }}</p>
+                                <p class="text-slate-700 text-md px-20 max-lg:px-4 max-lg:text-xs">
+                                    ₱{{ $cartItem->product->price }}</p>
+                                <p class="text-orange-600 text-md px-20 max-lg:px-4 max-lg:text-xs">
+                                    ₱{{ $cartItem->totalPrice() }}</p>
 
-                                <a href="{{ route('products.checkout', $product->id) }}"
+                                <!-- Adjust the route as needed -->
+                                <a href="{{ route('products.checkout', $cartItem->product->id) }}"
                                     class="text-slate-700 text-sm px-20 py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:bg-white border-2 border-red-700 hover:text-red-700 font-semibold cursor-pointer max-lg:px-2 max-lg:text-xs text-center max-lg:py-2 max-lg:mx-2">Check
                                     out</a>
-
-
                             </div>
                         </div>
-                        <div>
-                            <div class="border p-4 bg-slate-50 flex justify-start items-center">
-                                <img class="h-4"
-                                    src="https://static.vecteezy.com/system/resources/previews/005/895/281/original/voucher-icon-style-vector.jpg"
-                                    alt="">
-                                <h1 class="text-sm text-blue-700 px-4 max-lg:min-w-[35vw]">Add shop voucher code</h1>
-                            </div>
-                        </div>
+                        <!-- ... (other product details) ... -->
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <p>Your cart is empty.</p>
+            @endforelse
         </div>
         <div
             class="sticky bottom-0 bg-white flex flex-col border-2 border-slate-200 w-screen max-w-[75vw] rounded-md shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]">

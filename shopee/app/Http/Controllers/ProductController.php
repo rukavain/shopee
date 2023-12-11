@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Review;
+use App\Models\Cart;
 
 
 class ProductController extends Controller
@@ -151,5 +152,55 @@ class ProductController extends Controller
         return view('checkout', [
             'product' =>  $product
         ]);
+    }
+    public function addToCart(Product $product, Request $request)
+    {
+        $quantity = $request->input('quantity', 1);
+
+        $cartItem = Cart::where('product_id', $product->id)->first();
+
+        if ($cartItem) {
+
+            $cartItem->update(['quantity' => $cartItem->quantity + $quantity]);
+        } else {
+
+            Cart::create([
+                'product_id' => $product->id,
+                'quantity' => $quantity,
+            ]);
+        }
+
+        return redirect()->route('products.show', $product->id)->with('success', 'Product added to the cart.');
+    }
+
+    public function viewCart()
+    {
+        $cartItems = Cart::with('product')->get();
+
+        return view('cart', ['cartItems' => $cartItems]);
+    }
+
+    public function updateCart(Product $product, Request $request)
+    {
+        $quantity = $request->input('quantity');
+
+        $cartItem = Cart::where('product_id', $product->id)->first();
+
+        if ($cartItem) {
+            $cartItem->update(['quantity' => $quantity]);
+        }
+
+        return redirect()->route('cart.view')->with('success', 'Cart updated.');
+    }
+
+    public function removeFromCart(Product $product)
+    {
+        $cartItem = Cart::where('product_id', $product->id)->first();
+
+        if ($cartItem) {
+            $cartItem->delete();
+        }
+
+        return redirect()->route('cart.view')->with('success', 'Product removed from the cart.');
     }
 }

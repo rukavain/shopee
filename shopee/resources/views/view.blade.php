@@ -105,7 +105,7 @@
                                     </div>
                                 @endif
                             </div>
-                            <form method="POST" action="{{ route('purchase', $product->id) }}">
+                            {{-- <form method="POST" action="{{ route('purchase', $product->id) }}">
                                 @csrf
                                 <label for="quantity">Quantity:</label>
                                 <input class="py-2 px-4 font-semibold border-2 max-md:py-0 max-md:px-2 max-md:m-4"
@@ -117,7 +117,22 @@
                                 <a type="submit" href="{{ route('products.checkout', $product->id) }}"
                                     class="py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:bg-white font-semibold hover:text-red-700 max-md:text-xs max-md:px-4">Buy
                                     now</a>
+                            </form> --}}
+                            <form method="POST" action="{{ route('addToCart', $product->id) }}">
+                                @csrf
+                                <label for="quantity">Quantity:</label>
+                                <input class="py-2 px-4 font-semibold border-2 max-md:py-0 max-md:px-2 max-md:m-4"
+                                    type="number" name="quantity" min="1" max="{{ $product->stocks }}"
+                                    value="1">
+                                <button value="cart" type="submit" name="action"
+                                    class="py-2 px-8 bg-red-100 text-sm mx-4 border rounded border-red-700 transition hover:bg-red-700 hover:text-white font-semibold text-red-900 max-md:text-xs max-md:px-4">
+                                    Add to Cart
+                                </button>
+                                <a type="submit" href="{{ route('products.checkout', $product->id) }}"
+                                    class="py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:bg-white font-semibold hover:text-red-700 max-md:text-xs max-md:px-4">Buy
+                                    now</a>
                             </form>
+
                         </div>
                     </div>
 
