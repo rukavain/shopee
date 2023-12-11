@@ -196,11 +196,11 @@ class ProductController extends Controller
     public function removeFromCart(Product $product)
     {
         $cartItem = Cart::where('product_id', $product->id)->first();
-
         if ($cartItem) {
             $cartItem->delete();
+            return redirect()->route('cart.show')->with('success', 'Product removed from the cart.');
+        } else {
+            return redirect()->route('cart.show')->with('error', 'Product not found in the cart.');
         }
-
-        return redirect()->route('cart.view')->with('success', 'Product removed from the cart.');
     }
 }

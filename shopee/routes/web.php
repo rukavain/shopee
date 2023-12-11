@@ -52,3 +52,5 @@ Route::get('/checkout/{product}', [ProductController::class, 'checkout'])->name(
 Route::post('/add-to-cart/{product}', [ProductController::class, 'addToCart'])->name('addToCart');
 
 Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart.show');
+
+Route::delete('/cart/{product}', [ProductController::class, 'removeFromCart'])->name('cart.destroy');

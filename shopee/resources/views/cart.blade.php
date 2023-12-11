@@ -109,13 +109,20 @@
                                 <p class="text-orange-600 text-md px-20 max-lg:px-4 max-lg:text-xs">
                                     ₱{{ $cartItem->totalPrice() }}</p>
 
-                                <!-- Adjust the route as needed -->
                                 <a href="{{ route('products.checkout', $cartItem->product->id) }}"
                                     class="text-slate-700 text-sm px-20 py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:bg-white border-2 border-red-700 hover:text-red-700 font-semibold cursor-pointer max-lg:px-2 max-lg:text-xs text-center max-lg:py-2 max-lg:mx-2">Check
                                     out</a>
+                                <form method="POST" action="{{ route('cart.destroy', $cartItem->product->id) }}">
+                                    @csrf
+                                    @method('delete')
+                                    <button
+                                        class="text-slate-700 text-sm px-20 py-2 px-8 bg-red-700 text-sm text-white rounded mx-4 border-2 border-red-700 transition hover:bg-white border-2 border-red-700 hover:text-red-700 font-semibold cursor-pointer max-lg:px-2 max-lg:text-xs text-center max-lg:py-2 max-lg:mx-2">Remove
+                                        from cart
+                                    </button>
+                                </form>
+
                             </div>
                         </div>
-                        <!-- ... (other product details) ... -->
                     </div>
                 </div>
             @empty

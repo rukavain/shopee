@@ -13,12 +13,12 @@ class Cart extends Model
         'product_id',
         'quantity'
     ];
-    public function product()
-    {
-        return $this->belongsTo(Product::class);
-    }
     public function totalPrice()
     {
         return $this->quantity * $this->product->price;
+    }
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }
