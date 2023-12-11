@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <footer class="py-6 flex justify-center items-center bg-orange-600 bottom-0">
+    <footer class=" bottom-0 py-6 flex justify-center items-center bg-orange-600 ">
         <h1 class="text-white text-sm font-semibold">ivandev.com &copy;</h1>
     </footer>
 </body>

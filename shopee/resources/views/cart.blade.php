@@ -85,6 +85,15 @@
             </div>
         </div>
         <div class="my-4 p-8 max-lg:min-w-[10vw] max-lg:p-0">
+            @if (session('success'))
+                <div
+                    class="bg-white border-2 border-orange-600 text-slate-800 font-semibold text-md placeholder-green-700 dark:placeholder-green-500 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-green-500">
+
+                    <button class="close-alert " onclick="closeAlert(this)">
+                        {{ session('success') }}
+                    </button>
+                </div>
+            @endif
             @forelse ($cartItems as $cartItem)
                 <div class="flex flex-col max-lg:min-w-[35vw]">
                     <div class="">
@@ -162,6 +171,11 @@
         </div>
     </div>
     @include('footer')
+    <script>
+        function closeAlert(element) {
+            element.parentElement.style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
