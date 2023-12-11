@@ -32,17 +32,33 @@ class ProductController extends Controller
     {
         return view('layout');
     }
-    public function cart(Product $products)
+    // public function cart()
+    // {
+    //     $query = Product::orderBy('created_at', 'DESC');
+
+    //     if (request()->has('search')) {
+    //         $query = $query->where('name', 'like', '%' . request()->get('search', '') . '%');
+    //     }
+
+    //     $products = $query->get();
+
+    //     return view('cart', compact('products'));
+    // }
+    public function cart()
     {
-        $products::all();
-        $products = Product::orderBy('created_at', 'DESC');
+        $query = Cart::query();
+
         if (request()->has('search')) {
-            $products = $products->where('name', 'like', '%' . request()->get('search', '') . '%');
+            $query->whereHas('product', function ($subquery) {
+                $subquery->where('name', 'like', '%' . request()->input('search') . '%');
+            });
         }
-        return view('cart', [
-            'products' => $products->get()
-        ]);
+
+        $cartItems = $query->get();
+
+        return view('cart', compact('cartItems'));
     }
+
     public function mainpage()
     {
         $product = Product::orderBy('created_at', 'DESC');
