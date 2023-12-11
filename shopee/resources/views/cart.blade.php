@@ -105,7 +105,6 @@
                                     <img class="h-32 w-32 object-cover max-lg:h-24 max-lg:w-24"
                                         src="{{ $cartItem->product->image }}" alt="{{ $cartItem->product->name }}">
                                 </a>
-
                                 <div class="mx-8 max-lg:mx-2">
                                     <h1 class=""> {{ $cartItem->product->name }} </h1>
                                 </div>
@@ -129,7 +128,6 @@
                                         from cart
                                     </button>
                                 </form>
-
                             </div>
                         </div>
                     </div>

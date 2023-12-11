@@ -200,8 +200,12 @@
             </div>
 
         </div>
+        <div class="bottom-0 flex border border-blue-700 my-12 justify-center items-center gap-4">
+            {{ $products->links() }}
+        </div>
     @endif
     @include('footer')
+
 </body>
 
 </html>

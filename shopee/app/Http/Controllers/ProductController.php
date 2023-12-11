@@ -95,8 +95,10 @@ class ProductController extends Controller
     }
     public function gotoprodlist(Product $products)
     {
+        $products = Product::orderBy('created_at', 'ASC');
+
         return view('prodlist', [
-            'products' => Product::all()
+            'products' => $products->paginate(10)
         ]);
     }
 
