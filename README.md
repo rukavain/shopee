@@ -17,3 +17,7 @@
 1. Login system. Where you can login as an admin or a user which have different operations depending on the account type.  <br>  <br>
 3. User Auth.  <br>  <br>
 4. Still thinking of what features I should put. You can freely comment on my this commit to suggest some!   <br>  <br>
+
+
+
+Note: Development stopped Dec, 17, 2023 because I have lost the motivation again for coding XD
