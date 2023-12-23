@@ -21,3 +21,4 @@
 
 
 Note: Development stopped Dec, 17, 2023 because I have lost the motivation again for coding XD
+Commit!
